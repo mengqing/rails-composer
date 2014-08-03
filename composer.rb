@@ -1376,6 +1376,7 @@ stage_three do
   end
   if (prefer :authorization, 'pundit') && (prefer :tests, 'rspec')
     generate 'testing:configure pundit -f'
+    remove_file 'spec/policies/user_policy_spec.rb' unless %w(users about+users).include?(prefs[:pages])
   end
 end
 # >---------------------------- recipes/tests.rb -----------------------------end<
